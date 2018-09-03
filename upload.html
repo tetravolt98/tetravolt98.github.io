@@ -39,7 +39,7 @@
 
 </head>
 
-<body class="upload-page">
+<body>
 <div class="full-cover">
 </div>
 
@@ -84,77 +84,47 @@
             <hr>
 
             <div class="row section-text text-justify">
-                
-                    <h2>COURSES</h2>
-
-                    <div class="row">
-                    	<div class="col-md-3">
-                      <div class="dropdown">
-					    <button class="btn btn-primary dropdown-toggle course-list" type="button" data-toggle="dropdown" style="width: 100%;">Select Course
-					    <span class="caret"></span></button>
-					    <ul class="dropdown-menu">
-					      <li><a href="#">CSCA08 - Fall 2017</a></li>
-					      <li><a href="#">CSCB09 - Summer 2018</a></li>
-					      <li><a href="#">CSCA20 - Fall 2018</a></li>
-					    </ul>
-					  </div>
-					  </div>
-
-						<div class="col-md-2">
-					    <div class="dropdown">
-					    <button class="btn btn-primary dropdown-toggle week-list" type="button" data-toggle="dropdown" style="width: 100%;">Select Week
-					    <span class="caret"></span></button>
-					    <ul class="dropdown-menu">
-					      <li><a href="#">WEEK 01</a></li>
-					      <li><a href="#">WEEK 02</a></li>
-					      <li><a href="#">WEEK 03</a></li>
-					      <li><a href="#">WEEK 04</a></li>
-					      <li><a href="#">WEEK 05</a></li>
-					      <li><a href="#">WEEK 06</a></li>
-					      <li><a href="#">WEEK 07</a></li>
-					      <li><a href="#">WEEK 08</a></li>
-					      <li><a href="#">WEEK 09</a></li>
-					      <li><a href="#">WEEK 10</a></li>
-						  <li><a href="#">WEEK 11</a></li>
-					      <li><a href="#">WEEK 12</a></li>
-					    </ul>
-					  </div>
-					  </div>
-
-					  <div class="col-md-3">
-					  	
-					  	<label class="btn btn-default btn-file" style="width: 100%;">
-						    <span id="filenamePlaceholder"> Select File </span>
-						    <input type="file" style="display: none;" id="fileSelection">
-						    <pre id="filePre" style="display: none;"></pre>
-						</label>
-						
-
-					  </div>	
-
-					 
-
-					  		<div class="col-md-2">
-            <button type="button" class="btn btn-success btn-file-post" style="width: 100%;">Post</button>
-			</div>
-					 </div>
-
-	
-
-
-                
+                <div class="col-md-12">
+                    <h2>CSCA08 - Fall 2017 </h2>
+                    <div class="hr-blue"></div>
+                    Introduction to Computer Science I<br> Brian Harrington & Marzieh Ahmadzadeh
+                </div>
 
 
             </div>
 
-
+            <div class="upload-btn-div"> 
+    Choose File
+    <input name="upload"type="file" id="fileinput"/>
+    
+    </div>
+          <p id="which-file-chosen"></p>
+          <div class="col-md-12">
+           <div class="hr-blue"></div>
+           </div>
+            <form action="#" id="radio_forms">
+            <div class="row">
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 1</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 2</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 3</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 4</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 5</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 6</label></div>
+            </div>
+            <div class="row">
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 7</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 8</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 9</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 10</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 11</label></div>
+            <div class="col-md-2"><label class="radio-inline"><input type="radio" name="optradio">Week 12</label></div>
+            </div>
+            </form>
             
-            <!--
             <div class="btn-post-ta-notes"> 
             Post
             </div>
-        -->
-
+            
            
             
                
@@ -192,7 +162,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 
 
-    <script src="js/config.js"> </script>
+    
     <script src="js/script.js"></script>
 </body>
 
