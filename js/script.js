@@ -32,6 +32,23 @@
   storageBucket: "",
   messagingSenderId: "171347798752"
  };
+ 
+ 
+console.log("config file imported");
+var github_token = config_obj.github_token;
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ var filenameUpload = "";
+ 
  firebase.initializeApp(config);
  // database
  var database = firebase.database();
@@ -61,6 +78,128 @@
   }
   console.log("tut num is " + tut_num);
  });
+
+var response = "";
+// our generic github request
+function githubRequest(endpoint, method, body) {
+  // console.log(github_token);
+  var baseUri = "https://api.github.com";
+  var fullUri = baseUri + endpoint; // endpoint is like /repos/username/repo/contents/path
+  
+  // set up the request
+  $.ajax({
+    url: fullUri,
+    type: method,
+    beforeSend: function(request) {
+      request.setRequestHeader("Authorization", "Bearer " + github_token);
+      request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    },
+    async: false,
+    data: JSON.stringify(body),
+    success: function(data) {
+      console.log("SUCCESS");
+      // alert("Filed added");
+      response = data;
+      // location.reload();
+    },
+    error: function(data) {
+      console.log("ERROR");
+      // alert("Something went wrong ... check console");
+      response = data;
+    }
+  });
+
+}
+
+// our function to populate the TA page
+function getTAfiles(course) {
+  // csca08-row
+  // make a GET request to the course
+  githubRequest("/repos/dharm1k987/TA_FILES/contents/" + course, "GET", {});
+  var weekNumArray = [];
+  // console.log(response);
+  for (item in response) {
+    var weekNum = response[item]["name"];
+    weekNumArray = weekNumArray.concat(weekNum);
+    var elem = "." + course + "-row";
+    var hrefLocation = ""
+    // console.log(response);
+   //  $(elem).append("<div class='col-md-4'> <a href='#'>" +  weekNum + " </a> </div>");
+  }
+
+  // now we set the urls in another request
+  for (week in weekNumArray) {
+    githubRequest("/repos/dharm1k987/TA_FILES/contents/" + course + "/" + weekNumArray[week], "GET", {});
+    var url = response[0].download_url;
+    $(elem).append("<div class='col-md-4'> <a href='" + url + "'>" +  weekNumArray[week] + " </a> </div>");
+  }
+}
+
+// getTAfiles("CSCA08");
+// getTAfiles("CSCB09");
+getTAfiles("CSCA20");
+
+
+
+
+
+// when a dropdown is selected, we set its name equal to what was selected
+$("ul.dropdown-menu li a").click(function(){
+  console.log("dropdown clicked");
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+});
+
+
+
+$(".btn-file-post").click(function () {
+  // first check if all the preconditions are met
+  if (($(".week-list").text()).trim() == "Select Week" || ($(".course-list").text()).trim() == "Select Course" ||
+    ($("#filenamePlaceholder").text()).trim() == "Select File") {
+    alert("One or more options were not filled in");
+    return;
+  }
+  // else we are fine to post
+  // we need to get the files base64 encoding
+  var reader = new FileReader();
+  reader.addEventListener('load', function() {
+    document.getElementById('filePre').innerText = this.result;
+    var result =$("#filePre").text();
+    // now we can call the github request
+    var endpoint = config_obj.ta_uri + "/" + (($(".course-list").text()).trim()).split(" ")[0] + "/" +
+     ($(".week-list").text()).trim() + "/" + (($("#filenamePlaceholder").text()).trim()).replace(/^.*[\\\/]/, '');
+    // console.log(github_uri);
+    // construct the body
+    var body = {"message": "Added " +  " files"}
+    var body = {
+      "message": "Added " + ($(".week-list").text()).trim() + " files",
+      "committer": {
+        "name": config_obj.commit_name,
+        "email": config_obj.commit_email
+      },
+      "content": btoa(result)
+    }
+    console.log(endpoint);
+    // var str = JSON.stringify(body, null, 4);
+    // console.log(str);
+    
+    githubRequest(endpoint, "PUT", body);
+    // githubRequest("/repos/dharm1k987/TA_FILES/contents/" + )
+    // console.log(window.btoa(result), "PUT", );
+  });
+  reader.readAsText(document.querySelector('input').files[0]);
+
+  //githubRequest()
+});
+
+$('#fileSelection').on('change', function() {
+  console.log("in this function");
+  filenameUpload = ($(this).val());
+  console.log(filenameUpload);
+  // set the selection equal to the file name
+  $('#filenamePlaceholder').html(filenameUpload);
+});
+
 
  // onclick for when I want to post TA notes to the server
  $('.btn-post-ta-notes').click(function() {
@@ -201,6 +340,18 @@
  $(".btn-close-modal").click(function() {
   navbar.slideDown();
  })
+
+ // if we want to upload (upload.html), they need the password
+  if ($('body').is('.upload-page')) {
+    var pwd = prompt("Enter the password to access this page: ");
+    if (pwd != config_obj.upload_pwd) {
+      console.log("will redirect since pwd is wrong");
+      window.location = "index.html";
+    } else {
+      console.log("right pwd");
+    }
+  
+ };
 
 
  /**** SMOOTH SCROLL ****/
