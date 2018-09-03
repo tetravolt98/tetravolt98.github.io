@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="css/icons/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="css/icons/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="css/icons/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="css/icons/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="css/icons/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="css/icons/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="css/icons/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="css/icons/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="css/icons/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="css/icons/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="css/icons/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/icons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/query.css">
+    <link rel="stylesheet" href="css/icons/ionicons-2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
+
+</head>
+
+<!-- Body -->
+
+<!-- Responsive navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid no-padding">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <!-- 3 lines on mobile device -->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand text-uppercase navbar-name-text" href="#"><span>DHARMIK</span> SHAH</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right text-uppercase">
+                <!-- Items on navbar and links -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="ta.html">TA</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- Contacts section -->
+<section class="contact h1-title parallax-contact" id="contact-scroll">
+
+    <div class="container">
+        <h1 class="text-center">CONTACT ME</h1>
+        <hr>
+        <!-- Intro -->
+        <div class="row section-text text-center">Wish to contact me regarding anything? Please leave your message in the box below and I will reply as soon as I can. Want to see my resume, GitHub? Links are in the footer.</div>
+        <hr>
+
+        <!-- Modal activation for when they click send -->
+        <div class="form-group">
+            <!-- Enter name -->
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <!-- Enter email -->
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email">
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <!-- Enter message -->
+            <label for="message">Message:</label>
+            <textarea class="form-control" rows="5" id="message" style="resize:none" name="message"></textarea>
+            <div class="help-block with-errors"></div>
+
+            <!-- Submit button -->
+     
+
+                <button type="button" class="btn btn-primary btn-modal img-hide-nav btn-send send-msg-modal" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false" style="margin-top: 2%;">Send</button>
+   
+
+        </div>
+    </div>
+
+</section>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" data-keyboard="false" data-backdrop="static">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-close-modal" data-dismiss="modal" >Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container" style="width:100%;">
+            <p class="text-center"> Dharmik Shah</p>
+            <div class="icons text-center">
+                <a href="Resume.pdf"><i class="ion-document-text"></i></a>
+                <a href="mailto:dharmik.shah@mail.utoronto.ca"><i class="ion-email"></i></a>
+                <a href="https://github.com/dharm1k987"><i class="ion-social-github"></i></a>
+
+            </div>
+        </div>
+    </footer>
+    
+<!-- Plugins or scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/noframework.waypoints.min.js"></script>
+<!--
+    <script type="text/javascript" src="js/waypoints.debug.js"></script>
+-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/SmoothScroll.js"></script>
+<!-- Own script -->
+<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+</html>
